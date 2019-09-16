@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
             speed += acc;
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKey(KeyCode.S))
             speed -= acc;
 
         if (speed > maxSpeed)

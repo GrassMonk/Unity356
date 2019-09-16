@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 2e8a9fd57f576984dbb05012bf5639c0
+  productGUID: a238f3a73d00b4d47a4ac47ca8a98f02
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: CometProject
+  productName: Asset Testing
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -650,9 +650,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 7efc5a28-0f72-4d91-bf02-e6adf93fc92e
-  projectName: CometProject
-  organizationId: oliverrs1999
+  cloudProjectId: d323be25-aa5b-412d-bb34-252c25835031
+  projectName: Asset Testing
+  organizationId: talapanenipuneet
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
