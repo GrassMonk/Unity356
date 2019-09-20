@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PowerUp : MonoBehaviour {
 
@@ -13,8 +14,8 @@ public class PowerUp : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-        else if (collision.gameObject.tag == "AI") {
-            collision.gameObject.GetComponent<AiSphere>().speed = 10f;
+        else if (collision.gameObject.tag == "racer") {
+            collision.gameObject.GetComponent<NavMeshAgent>().speed = 10f;
             Destroy(this.gameObject);
         }
     }
