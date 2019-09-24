@@ -499,7 +499,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 894017736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e532b86ae9dac047ba647a1b1ffcae3, type: 3}
+  m_Script: {fileID: 11500000, guid: c5c229057cd69bc478bb745ff9025d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1767698904}
@@ -760,6 +760,14 @@ Prefab:
     - target: {fileID: 22400000, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
@@ -1137,7 +1145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767698904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aeb7447681b1e949b0c3b42a1116eb0, type: 3}
+  m_Script: {fileID: 11500000, guid: bef0da417d563be4fb2f1e893f563bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1767698906}
