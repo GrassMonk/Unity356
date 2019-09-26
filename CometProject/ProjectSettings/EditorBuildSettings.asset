@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prototype/Asset Testing.unity
     guid: f66a26ccf2409c1439eba967cf1c7d57
+  - enabled: 1
+    path: Assets/mobile stuff/Asset Testing.unity
+    guid: 00095039f9275b74d82b79eee58482f0
   m_configObjects: {}

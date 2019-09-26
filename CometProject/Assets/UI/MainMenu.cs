@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour {
     
 	public void Go ()
     {
-        SceneManager.LoadScene("Assets/Prototype/Asset Testing.unity");
+        //SceneManager.LoadScene("Assets/Prototype/Asset Testing.unity");
+        SceneManager.LoadScene("Assets/mobile stuff/Asset Testing.unity");
     }
 }
