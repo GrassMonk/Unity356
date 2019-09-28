@@ -11,6 +11,7 @@ public class Racer : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        target = GameObject.Find("waypointMarker").GetComponent<Transform>();
         // agent.SetDestination( target.position ); // if the target is static
     }
 
