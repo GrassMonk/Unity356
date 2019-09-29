@@ -56,18 +56,18 @@ namespace UnityStandardAssets.CrossPlatformInput
 			// set axes to use
 			m_UseX = (axesToUse == AxisOption.Both || axesToUse == AxisOption.OnlyHorizontal);
 			m_UseY = (axesToUse == AxisOption.Both || axesToUse == AxisOption.OnlyVertical);
-
-			// create new axes based on axes to use
-			if (m_UseX)
-			{
-				m_HorizontalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(horizontalAxisName);
-				CrossPlatformInputManager.RegisterVirtualAxis(m_HorizontalVirtualAxis);
-			}
-			if (m_UseY)
-			{
-				m_VerticalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(verticalAxisName);
-				CrossPlatformInputManager.RegisterVirtualAxis(m_VerticalVirtualAxis);
-			}
+            
+                // create new axes based on axes to use
+            if (m_UseX)
+            {
+                m_HorizontalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(horizontalAxisName);
+                CrossPlatformInputManager.RegisterVirtualAxis(m_HorizontalVirtualAxis);
+            }
+            if (m_UseY)
+            {
+                m_VerticalVirtualAxis = new CrossPlatformInputManager.VirtualAxis(verticalAxisName);
+                CrossPlatformInputManager.RegisterVirtualAxis(m_VerticalVirtualAxis);
+            }
 		}
 
 
