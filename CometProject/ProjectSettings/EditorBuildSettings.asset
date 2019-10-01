@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/UI/Main Menu.unity
     guid: 9590e3578d7979d49b4488fd48badd25
   - enabled: 1
-    path: Assets/Prototype/Asset Testing.unity
-    guid: f66a26ccf2409c1439eba967cf1c7d57
-  - enabled: 1
-    path: Assets/mobile stuff/Asset Testing.unity
-    guid: 00095039f9275b74d82b79eee58482f0
+    path: Assets/UI/Playground.unity
+    guid: e4a3a8c763ea61045b6a26ef0399b86b
   m_configObjects: {}
