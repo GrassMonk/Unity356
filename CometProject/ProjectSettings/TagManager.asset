@@ -8,6 +8,7 @@ TagManager:
   - AI
   - Terrain
   - racer
+  - Marker
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Power
+  - Obstacle
   - 
   - 
   - 

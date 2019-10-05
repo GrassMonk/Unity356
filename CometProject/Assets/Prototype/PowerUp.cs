@@ -5,18 +5,22 @@ using UnityEngine.AI;
 
 public class PowerUp : MonoBehaviour {
 
-    bool power = false;
-	void OnCollisionEnter(Collision collision)
+    public bool power = true;
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
             collision.gameObject.GetComponent<PlayerController>().maxSpeed = 10f;
             collision.gameObject.GetComponent<PlayerController>().acc = 1f;
-            Destroy(this.gameObject);
+            
         }
 
-        else if (collision.gameObject.tag == "racer") {
-            collision.gameObject.GetComponent<NavMeshAgent>().speed = 10f;
-            Destroy(this.gameObject);
+        if (collision.gameObject.tag == "racer")
+        {
+            power = false;
+            collision.gameObject.GetComponent<NavMeshAgent>().acceleration += 10f;
         }
+        Destroy(this.gameObject);
     }
 }

@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class Racer : MonoBehaviour
 {
-    public Transform target;
+    public Transform target, powerUp;
     private NavMeshAgent agent;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        agent = this.GetComponent<NavMeshAgent>();
         target = GameObject.Find("waypointMarker").GetComponent<Transform>();
         // agent.SetDestination( target.position ); // if the target is static
     }
@@ -18,7 +18,21 @@ public class Racer : MonoBehaviour
 
     void Update()
     {
+        //transform.LookAt(target);
         agent.SetDestination(target.position); // if the target can move
         //Debug.Log((target.position - agent.transform.position).magnitude); // for debugging
+        PowerPickup PP = (PowerPickup)GetComponent(typeof(PowerPickup));
+        PP.FindPowerUps();
     }
+
+    /*
+    void OnTriggerEnter (Collider collision)
+    {
+        if(collision.tag == "Marker")
+        {
+            var localVel = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
+            Debug.Log(localVel);
+        }
+    }
+    */
 }
