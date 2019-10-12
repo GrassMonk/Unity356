@@ -42,16 +42,16 @@ public class LoadGamePrefs : MonoBehaviour {
             PlayerPrefs.SetInt("Music", mu);
             PlayerPrefs.SetInt("Sound", so);
             PlayerPrefs.SetInt("Gyro", gy);
+            
+            bool gyro = PlayerPrefs.GetInt("Gyro") != 0;
+            if (gyro)
+                GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = false;
+            else
+                GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = true;
         }
         catch (NullReferenceException e)
         {
             // Debug.Log(e.Message);
         }
-
-        bool gyro = PlayerPrefs.GetInt("Gyro") != 0;
-        if (gyro)
-            GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = false;
-        else
-            GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = true;
     }
 }
