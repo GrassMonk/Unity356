@@ -7,7 +7,8 @@ public class OnLoad3 : MonoBehaviour
 {
     private void OnEnable()
     {
-        Time.timeScale = 0;
+        if (gameObject.name == "PauseMenu")
+            Time.timeScale = 0;
         if (PlayerPrefs.HasKey("Music"))
         {
             if (PlayerPrefs.GetInt("Music") == 0)
@@ -26,6 +27,7 @@ public class OnLoad3 : MonoBehaviour
     }
     private void OnDisable()
     {
-        Time.timeScale = 1;
+        if (gameObject.name == "PauseMenu")
+            Time.timeScale = 1;
     }
 }
