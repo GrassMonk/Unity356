@@ -20,12 +20,20 @@ public class Controller : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        //float moveHorizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-        //float moveVertical = CrossPlatformInputManager.GetAxis("Vertical");
-        float moveHorizontal = Input.acceleration.x;
-        float moveVertical = Input.acceleration.y;
+        bool gyro = PlayerPrefs.GetInt("Gyro") != 0;
+        float moveHorizontal, moveVertical;
+        if (gyro == false)
+        {
+            moveHorizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+            moveVertical = CrossPlatformInputManager.GetAxis("Vertical");
+        }
+        else
+        {
+            moveHorizontal = Input.acceleration.x;
+            moveVertical = Input.acceleration.y;
+        }
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Vector3 movement = new Vector3(moveVertical, 0.0f, -moveHorizontal);
 
         rb.AddForce(movement * speed);
     }
