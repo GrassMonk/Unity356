@@ -11,26 +11,35 @@ public class PowerUps : MonoBehaviour {
     private Transform explosion;
     public GameObject[] puBtn;
 
-    void Start ()
-    {
-        player = GameObject.FindWithTag("Player");
-        playerCol = player.GetComponent<Collider>();
-    }
-
     private void Update()
     {
         gameObject.transform.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
-        playerPos = player.transform.position;
+        try
+        {
+            playerPos = player.transform.position;
+        }
+        catch (System.NullReferenceException e)
+        {
+            // Debug.Log(e.Message);
+        }
     }
 
-    private void OnTriggerEnter(Collider playerCol)
+    private void OnTriggerEnter(Collider collision)
     {
+        player = collision.gameObject;
         // Set random powerup button to active
         int randomPU = Random.Range(0, 4);
-        RectTransform[] Children = GameObject.Find("ActivatePowerUp").GetComponentsInChildren<RectTransform>();
-        if (Children.Length == 1) // If there is currently no powerup equipped
+        if (collision.gameObject.tag == "Player")
         {
-            puBtn[randomPU].SetActive(true);
+            RectTransform[] Children = GameObject.Find("ActivatePowerUp").GetComponentsInChildren<RectTransform>();
+            if (Children.Length == 1) // If there is currently no powerup equipped
+            {
+                puBtn[randomPU].SetActive(true);
+            }
+        }
+        else if (collision.gameObject.tag == "racer")
+        {
+            StartCoroutine(Wait5(randomPU));
         }
         gameObject.GetComponent<Renderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
@@ -115,5 +124,19 @@ public class PowerUps : MonoBehaviour {
         yield return new WaitForSeconds(6f); // waits 5 seconds
         gameObject.GetComponent<Renderer>().enabled = true;
         gameObject.GetComponent<Collider>().enabled = true;
+    }
+
+    public IEnumerator Wait5(int randomPU)
+    {
+        int ranWait = Random.Range(0, 5);
+        yield return new WaitForSeconds((float)(ranWait)); // waits 5 seconds
+        if (randomPU == 1)
+            PowerUp1();
+        else if (randomPU == 2)
+            PowerUp2();
+        else if (randomPU == 3)
+            PowerUp3();
+        else
+            PowerUp4();
     }
 }
