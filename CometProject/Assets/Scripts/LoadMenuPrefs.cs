@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LoadMenuPrefs : MonoBehaviour {
 
     private float r1, g1, b1, r2, g2, b2, si;
-    private int ma, mu, so, gy;
+    private int ma, mu, so, gy, an, ad;
     private Color color;
     private Color specular;
     private GameObject myBall;
@@ -91,6 +91,20 @@ public class LoadMenuPrefs : MonoBehaviour {
         {
             // Debug.Log(e.Message);
         }
+
+        try
+        {
+            an = (int)GameObject.Find("AINum").GetComponent<Slider>().value;
+            ad = (int)GameObject.Find("AIDiff").GetComponent<Slider>().value;
+
+            PlayerPrefs.SetInt("AiNum", an);
+            PlayerPrefs.SetInt("AiDiff", ad);
+        }
+        catch (NullReferenceException e)
+        {
+            // Debug.Log(e.Message);
+        }
+
     }
 
 }
