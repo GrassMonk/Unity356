@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PowerPickup : MonoBehaviour {
+public class AIPowerUpPickup : MonoBehaviour {
 
     public float radius;
     [Range(0,360)]
@@ -17,12 +17,9 @@ public class PowerPickup : MonoBehaviour {
 
     private NavMeshAgent agent;
 
-    public Transform Marker;
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        Marker = GameObject.Find("waypointMarker").GetComponent<Transform>();
         StartCoroutine("FindPowerUpsWithDelay", .2f);
     }
 

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor (typeof (PowerPickup))]
-public class FOVEditor : Editor
+[CustomEditor (typeof (AIPowerUpPickup))]
+public class AIPowerUpEditor : Editor
 {
     void OnSceneGUI()
     {
-        PowerPickup pp = (PowerPickup)target;
+        AIPowerUpPickup pp = (AIPowerUpPickup)target;
         Handles.color = Color.white;
         Handles.DrawWireArc(pp.transform.position, Vector3.up, Vector3.forward, 360, pp.radius);
         Vector3 viewAngleA = pp.DirFromAngle(-pp.angle / 2, false);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Racer : MonoBehaviour
+public class AIRacers : MonoBehaviour
 {
     public Transform target, powerUp;
     private NavMeshAgent agent;
@@ -21,8 +21,9 @@ public class Racer : MonoBehaviour
         //transform.LookAt(target);
         agent.SetDestination(target.position); // if the target can move
         //Debug.Log((target.position - agent.transform.position).magnitude); // for debugging
-        PowerPickup PP = (PowerPickup)GetComponent(typeof(PowerPickup));
+        AIPowerUpPickup PP = (AIPowerUpPickup)GetComponent(typeof(AIPowerUpPickup));
         PP.FindPowerUps();
+        
     }
 
     /*

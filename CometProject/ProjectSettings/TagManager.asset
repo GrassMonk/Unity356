@@ -9,6 +9,14 @@ TagManager:
   - Terrain
   - racer
   - Marker
+  - Fire
+  - Marker1
+  - Marker2
+  - Marker3
+  - racer1
+  - racer2
+  - racer3
+  - racer4
   layers:
   - Default
   - TransparentFX
