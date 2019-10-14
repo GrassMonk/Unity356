@@ -7,11 +7,11 @@ public class MainMenu : MonoBehaviour {
 	public void Go ()
     {
         //SceneManager.LoadScene("Assets/Prototype/Asset Testing.unity");
-        SceneManager.LoadScene("Assets/UI/Playground.unity");
+        SceneManager.LoadScene("Assets/Scenes/Final Track.unity");
     }
     public void BackToMenu()
     {
         //SceneManager.LoadScene("Assets/Prototype/Asset Testing.unity");
-        SceneManager.LoadScene("Assets/UI/Main Menu.unity");
+        SceneManager.LoadScene("Assets/Scenes/Main Menu.unity");
     }
 }

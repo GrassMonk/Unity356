@@ -7,16 +7,13 @@ public class Controller : MonoBehaviour {
 
     public Rigidbody rb;
     public float speed;
-    float dirX;
+    private Transform camTran;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        camTran = Camera.main.transform;
+    }
 
     private void FixedUpdate()
     {
@@ -33,8 +30,13 @@ public class Controller : MonoBehaviour {
             moveVertical = Input.acceleration.y;
         }
 
-        Vector3 movement = new Vector3(moveVertical, 0.0f, -moveHorizontal);
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical );
+        
+        // rotate direction based on camera
+        Vector3 dir = camTran.TransformDirection(movement);
+        dir.Set(dir.x, 0, dir.z);
+        dir = dir.normalized * movement.magnitude;
 
-        rb.AddForce(movement * speed);
+        rb.AddForce(dir * speed);
     }
 }

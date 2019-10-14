@@ -11,7 +11,14 @@ public class AIRacers : MonoBehaviour
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
-        target = GameObject.Find("waypointMarker").GetComponent<Transform>();
+        try
+        {
+            target = GameObject.Find("waypointMarker").GetComponent<Transform>();
+        }
+        catch (System.NullReferenceException e)
+        {
+            // Debug.Log(e.Message);
+        }
         // agent.SetDestination( target.position ); // if the target is static
     }
 
