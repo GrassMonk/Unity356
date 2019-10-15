@@ -19,7 +19,6 @@ public class Controller : MonoBehaviour {
     private void FixedUpdate()
     {
         float speed = rb.velocity.magnitude;
-        Debug.Log(speed);
         bool gyro = PlayerPrefs.GetInt("Gyro") != 0;
         float moveHorizontal, moveVertical;
 

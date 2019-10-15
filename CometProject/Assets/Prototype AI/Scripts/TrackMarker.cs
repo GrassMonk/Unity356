@@ -25,13 +25,13 @@ public class TrackMarker : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-
+    void Update ()
+    {
         marker.transform.position = waypoints[markerNo].transform.position;
     }
 
     void OnTriggerEnter(Collider collision)
-    { 
+    {
         for (int i = 0; i < players; i++)
         {
             if (collision.gameObject.tag == "racer" + (i) && this.gameObject.tag == "Marker" + (i))
@@ -44,6 +44,18 @@ public class TrackMarker : MonoBehaviour {
                 }
                 this.GetComponent<Collider>().enabled = true;
             }
+        }
+
+        else if (collision.gameObject.tag == "Player" && this.gameObject.tag == "playerMarker")
+        {
+            this.GetComponent<Collider>().enabled = false;
+            markerNo += 1;
+            if (markerNo == trackWaypoints.Length)
+            {
+                markerNo = 1;
+            }
+            this.GetComponent<Collider>().enabled = true;
+            GameObject.Find("Player").GetComponent<TrackProgress>().TotalDistance();
         }
     }
 }
