@@ -15,7 +15,7 @@ public class TrackOutline : MonoBehaviour {
         waypoints = new List<Transform>();
 
         for(int i = 0; i < trackWaypoints.Length; i++) {
-            if(trackWaypoints[i] != transform) {
+            if(trackWaypoints[i] != transform && trackWaypoints[i].tag == "waypoint") {
                 waypoints.Add(trackWaypoints[i]);
             }
         }

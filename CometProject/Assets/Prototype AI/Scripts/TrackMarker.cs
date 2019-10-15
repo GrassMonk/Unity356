@@ -9,14 +9,17 @@ public class TrackMarker : MonoBehaviour {
     private List<Transform> waypoints = new List<Transform>();
     Transform[] trackWaypoints;
 
+    //int noOfAI = PlayerPrefs.GetInt("AiNum");
+    int players = 1;
+
     void Start()
     {
         GameObject track = GameObject.Find("Track");
         trackWaypoints = track.GetComponentsInChildren<Transform>();
         waypoints = new List<Transform>();
         for (int i = 0; i < trackWaypoints.Length; i++) {
-            if (trackWaypoints[i] != transform);
-            waypoints.Add(trackWaypoints[i]);
+            if (trackWaypoints[i] != transform && trackWaypoints[i].tag == "waypoint")
+                waypoints.Add(trackWaypoints[i]);
         }
         marker.transform.position = waypoints[markerNo].transform.position;
     }
@@ -28,49 +31,19 @@ public class TrackMarker : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "racer1" && this.gameObject.tag == "Marker")
+    { 
+        for (int i = 0; i < players; i++)
         {
-            this.GetComponent<Collider>().enabled = false;
-            markerNo += 1;
-            if (markerNo == trackWaypoints.Length)
+            if (collision.gameObject.tag == "racer" + (i) && this.gameObject.tag == "Marker" + (i))
             {
-                markerNo = 1;
+                this.GetComponent<Collider>().enabled = false;
+                markerNo += 1;
+                if (markerNo == trackWaypoints.Length)
+                {
+                    markerNo = 1;
+                }
+                this.GetComponent<Collider>().enabled = true;
             }
-            this.GetComponent<Collider>().enabled = true;
-        }
-
-        else if (collision.gameObject.tag == "racer2" && this.gameObject.tag == "Marker1")
-        {
-            this.GetComponent<Collider>().enabled = false;
-            markerNo += 1;
-            if (markerNo == trackWaypoints.Length)
-            {
-                markerNo = 1;
-            }
-            this.GetComponent<Collider>().enabled = true;
-        }
-
-        else if (collision.gameObject.tag == "racer3" && this.gameObject.tag == "Marker2")
-        {
-            this.GetComponent<Collider>().enabled = false;
-            markerNo += 1;
-            if (markerNo == trackWaypoints.Length)
-            {
-                markerNo = 1;
-            }
-            this.GetComponent<Collider>().enabled = true;
-        }
-
-        else if (collision.gameObject.tag == "racer4" && this.gameObject.tag == "Marker3")
-        {
-            this.GetComponent<Collider>().enabled = false;
-            markerNo += 1;
-            if (markerNo == trackWaypoints.Length)
-            {
-                markerNo = 1;
-            }
-            this.GetComponent<Collider>().enabled = true;
         }
     }
 }

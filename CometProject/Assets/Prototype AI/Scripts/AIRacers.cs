@@ -7,13 +7,25 @@ public class AIRacers : MonoBehaviour
 {
     public Transform target, powerUp;
     private NavMeshAgent agent;
-
+    Vector3 lastPos;
+    
+    int players = 1;
+    
     void Start()
     {
+        int noOfAI = PlayerPrefs.GetInt("AiNum");
         agent = this.GetComponent<NavMeshAgent>();
         try
         {
-            target = GameObject.Find("waypointMarker").GetComponent<Transform>();
+            for(int i = 0; i < players; i++)
+            {
+                if(gameObject.tag == "racer" + (i))
+                {
+                    target = GameObject.FindWithTag("Marker" + (i)).GetComponent<Transform>();
+                }
+                
+            }
+            
         }
         catch (System.NullReferenceException e)
         {
@@ -30,17 +42,24 @@ public class AIRacers : MonoBehaviour
         //Debug.Log((target.position - agent.transform.position).magnitude); // for debugging
         AIPowerUpPickup PP = (AIPowerUpPickup)GetComponent(typeof(AIPowerUpPickup));
         PP.FindPowerUps();
-        
+
     }
 
-    /*
+    
     void OnTriggerEnter (Collider collision)
     {
-        if(collision.tag == "Marker")
+        for (int i = 0; i < players; i++)
         {
-            var localVel = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
-            Debug.Log(localVel);
+            if (gameObject.tag == "racer" + (i) && collision.gameObject.tag == "Marker" + (i))
+            {
+                lastPos = collision.transform.position;
+            }
+        }
+
+        if(collision.gameObject.tag == "Respawn")
+        {
+            this.transform.position = lastPos;
         }
     }
-    */
+    
 }

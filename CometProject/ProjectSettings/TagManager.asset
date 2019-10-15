@@ -8,7 +8,6 @@ TagManager:
   - AI
   - Terrain
   - racer
-  - Marker
   - Fire
   - Marker1
   - Marker2
@@ -17,6 +16,19 @@ TagManager:
   - racer2
   - racer3
   - racer4
+  - waypoint
+  - Start
+  - racer5
+  - racer6
+  - racer7
+  - racer8
+  - Marker4
+  - Marker5
+  - Marker6
+  - Marker7
+  - Marker8
+  - Marker0
+  - racer0
   layers:
   - Default
   - TransparentFX
