@@ -12,13 +12,17 @@ public class CameraController : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate ()
     {
+        Vector3 lookAtThis;
         camDir = Vector3.Normalize(player.GetComponent<Rigidbody>().velocity) * 5;
         camDir.y = -2.0f;
         if (camDir.x == 0)
         {
             camDir.x = 5;
         }
-        transform.position = Vector3.Slerp(transform.position, player.transform.position-camDir, cameraStickiness * Time.fixedDeltaTime); ;
+        lookAtThis = player.transform.position;
+        lookAtThis.y += 2f;
+        lookAtThis -= camDir;
+        transform.position = Vector3.Slerp(transform.position, lookAtThis, cameraStickiness * Time.fixedDeltaTime); ;
         Quaternion lookRotation = Quaternion.LookRotation(camDir);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, cameraRotationSpeed*Time.deltaTime);
 	}

@@ -52,7 +52,8 @@ public class PowerUps : MonoBehaviour {
         {
             // Remove powerup icon
             puBtn[0].SetActive(false);
-            player.GetComponent<Controller>().speed *= 2;
+            player.GetComponent<Controller>().acceleration *= 2;
+            player.GetComponent<Controller>().maxSpeed *= 2;
         }
         else
             player.GetComponent<NavMeshAgent>().speed *= 2;
@@ -100,7 +101,8 @@ public class PowerUps : MonoBehaviour {
         {
             puBtn[3].SetActive(false);
             // Increase Speed, mass and size
-            player.GetComponent<Controller>().speed *= 10;
+            player.GetComponent<Controller>().acceleration *= 10;
+            player.GetComponent<Controller>().maxSpeed *= 3;
         }
         else
             player.GetComponent<NavMeshAgent>().speed *= 10;
@@ -116,7 +118,10 @@ public class PowerUps : MonoBehaviour {
     {
         yield return new WaitForSeconds(4f); // waits 4 seconds
         if (player.gameObject.tag == "Player")
-            player.GetComponent<Controller>().speed /= 2;
+        {
+            player.GetComponent<Controller>().acceleration /= 2;
+            player.GetComponent<Controller>().maxSpeed /= 2;
+        }
         else
             player.GetComponent<NavMeshAgent>().speed /= 2;
     }
@@ -135,7 +140,10 @@ public class PowerUps : MonoBehaviour {
         yield return new WaitForSeconds(6f); // waits 6 seconds
         // set values back to normal
         if (player.gameObject.tag == "Player")
-            player.GetComponent<Controller>().speed /= 10;
+        {
+            player.GetComponent<Controller>().acceleration /= 10;
+            player.GetComponent<Controller>().maxSpeed /= 3;
+        }
         else
             player.GetComponent<NavMeshAgent>().speed /= 10;
         player.GetComponent<Rigidbody>().mass /= 5;

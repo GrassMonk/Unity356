@@ -6,7 +6,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Controller : MonoBehaviour {
 
     public Rigidbody rb;
-    public float speed;
+    public float acceleration;
+    public float maxSpeed;
     private Transform camTran;
 
     // Use this for initialization
@@ -17,26 +18,35 @@ public class Controller : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        float speed = rb.velocity.magnitude;
+        Debug.Log(speed);
         bool gyro = PlayerPrefs.GetInt("Gyro") != 0;
         float moveHorizontal, moveVertical;
-        if (gyro == false)
-        {
-            moveHorizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-            moveVertical = CrossPlatformInputManager.GetAxis("Vertical");
-        }
-        else
-        {
-            moveHorizontal = Input.acceleration.x;
-            moveVertical = Input.acceleration.y;
-        }
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical );
-        
-        // rotate direction based on camera
-        Vector3 dir = camTran.TransformDirection(movement);
-        dir.Set(dir.x, 0, dir.z);
-        dir = dir.normalized * movement.magnitude;
+        if (speed < maxSpeed)
+        {
+            if (gyro == false)
+            {
+                moveHorizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+                moveVertical = CrossPlatformInputManager.GetAxis("Vertical");
+            }
+            else
+            {
+                moveHorizontal = Input.acceleration.x;
+                moveVertical = Input.acceleration.y;
+            }
 
-        rb.AddForce(dir * speed);
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+            if (movement.magnitude > 1)
+                movement.Normalize();
+
+            // rotate direction based on camera
+            Vector3 dir = camTran.TransformDirection(movement);
+            dir.Set(dir.x, 0, dir.z);
+            dir = dir.normalized * movement.magnitude;
+
+            rb.AddForce(dir * acceleration);
+        }
     }
 }

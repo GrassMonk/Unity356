@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 20263438282627876}
   - component: {fileID: 81867276049959376}
   - component: {fileID: 114750221480834768}
+  - component: {fileID: 45029789904030632}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -82,6 +83,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!45 &45029789904030632
+Skybox:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394032587366744}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!81 &81867276049959376
 AudioListener:
   m_ObjectHideFlags: 1
@@ -101,3 +110,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1709041979241706, guid: 9eb3ce2052fc5304395713cb8ffc8d28, type: 2}
+  cameraStickiness: 10
+  cameraRotationSpeed: 5
