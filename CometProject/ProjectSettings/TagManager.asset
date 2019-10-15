@@ -17,6 +17,7 @@ TagManager:
   - racer2
   - racer3
   - racer4
+  - playerMarker
   layers:
   - Default
   - TransparentFX

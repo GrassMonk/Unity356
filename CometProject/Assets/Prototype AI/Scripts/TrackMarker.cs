@@ -15,15 +15,15 @@ public class TrackMarker : MonoBehaviour {
         trackWaypoints = track.GetComponentsInChildren<Transform>();
         waypoints = new List<Transform>();
         for (int i = 0; i < trackWaypoints.Length; i++) {
-            if (trackWaypoints[i] != transform);
+            if (trackWaypoints[i] != transform)
             waypoints.Add(trackWaypoints[i]);
         }
         marker.transform.position = waypoints[markerNo].transform.position;
     }
 
     // Update is called once per frame
-    void Update () {
-
+    void Update ()
+    {
         marker.transform.position = waypoints[markerNo].transform.position;
     }
 
@@ -71,6 +71,18 @@ public class TrackMarker : MonoBehaviour {
                 markerNo = 1;
             }
             this.GetComponent<Collider>().enabled = true;
+        }
+
+        else if (collision.gameObject.tag == "Player" && this.gameObject.tag == "playerMarker")
+        {
+            this.GetComponent<Collider>().enabled = false;
+            markerNo += 1;
+            if (markerNo == trackWaypoints.Length)
+            {
+                markerNo = 1;
+            }
+            this.GetComponent<Collider>().enabled = true;
+            GameObject.Find("Player").GetComponent<TrackProgress>().TotalDistance();
         }
     }
 }
