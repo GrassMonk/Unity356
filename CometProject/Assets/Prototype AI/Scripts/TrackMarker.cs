@@ -5,20 +5,20 @@ using UnityEngine;
 public class TrackMarker : MonoBehaviour {
 
     public GameObject marker;
-    private int markerNo = 1;
+    private int markerNo = 0;
     private List<Transform> waypoints = new List<Transform>();
     Transform[] trackWaypoints;
 
-    //int noOfAI = PlayerPrefs.GetInt("AiNum");
-    int players = 6;
+    private int players;
 
     void Start()
     {
+        players = PlayerPrefs.GetInt("AiNum");
         GameObject track = GameObject.Find("Track");
         trackWaypoints = track.GetComponentsInChildren<Transform>();
         waypoints = new List<Transform>();
         for (int i = 0; i < trackWaypoints.Length; i++) {
-            if (trackWaypoints[i] != transform && trackWaypoints[i].tag == "waypoint")
+            if (trackWaypoints[i] != transform && trackWaypoints[i].tag == "waypoint") 
                 waypoints.Add(trackWaypoints[i]);
         }
         marker.transform.position = waypoints[markerNo].transform.position;
@@ -40,9 +40,10 @@ public class TrackMarker : MonoBehaviour {
                 markerNo += 1;
                 if (markerNo == trackWaypoints.Length)
                 {
-                    markerNo = 1;
+                    markerNo = 0;
                 }
                 this.GetComponent<Collider>().enabled = true;
+                GameObject.Find("Player").GetComponent<TrackPosition>().TotalDistance(i);
             }
         }
 

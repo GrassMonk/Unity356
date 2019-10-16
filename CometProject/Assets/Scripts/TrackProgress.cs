@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class TrackProgress : MonoBehaviour {
 
+    public float totProg;
     private float progress;
-    private float totDis;
-    private float crtDis;
-    private float playerSize;
+    private float totDis, crtDis, playerSize;
     private TMPro.TextMeshProUGUI lapText;
     private int lapInt;
     public GameObject FinishMenu;
 
     // Use this for initialization
     void Start () {
+        totProg = 0;
         progress = 0;
         lapInt = 1;
         playerSize = (GameObject.Find("Player").transform.localScale.y / 2) - 0.1f;
-        totDis = Vector3.Distance(GameObject.Find("Player").transform.position, GameObject.Find("PlayerMarker").transform.position) - (20 + playerSize);
+        totDis = Vector3.Distance(GameObject.Find("Player").transform.position, GameObject.FindWithTag("playerMarker").transform.position) - (12.5f + playerSize);
         lapText = GameObject.Find("LapCounter").GetComponent<TMPro.TextMeshProUGUI>();
     }
 	
@@ -52,13 +52,14 @@ public class TrackProgress : MonoBehaviour {
     {
         progress += (1 - (crtDis / totDis));
         yield return new WaitForSeconds(0);
-        totDis = Vector3.Distance(GameObject.Find("Player").transform.position, GameObject.Find("PlayerMarker").transform.position) - (20 + playerSize);
+        totDis = Vector3.Distance(GameObject.Find("Player").transform.position, GameObject.FindWithTag("playerMarker").transform.position) - (12.5f + playerSize);
     }
 
     private IEnumerator GetCrtDis()
     {
         yield return new WaitForSeconds(0);
-        crtDis = Vector3.Distance(GameObject.Find("Player").transform.position, GameObject.Find("PlayerMarker").transform.position) - (20 + playerSize);
-        GameObject.Find("ProgressBar").GetComponent<Slider>().value = progress + (1 - (crtDis / totDis));
+        crtDis = Vector3.Distance(GameObject.Find("Player").transform.position, GameObject.FindWithTag("playerMarker").transform.position) - (12.5f + playerSize);
+        totProg = progress + (1 - (crtDis / totDis));
+        GameObject.Find("ProgressBar").GetComponent<Slider>().value = totProg;
     }
 }

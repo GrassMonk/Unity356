@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class oilSlow : MonoBehaviour {
+public class OilSlow : MonoBehaviour {
 
     private GameObject player;
-    private Collider playerCol;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        playerCol = player.GetComponent<Collider>();
     }
 
     private void OnTriggerEnter(Collider playerCol)

@@ -15,36 +15,39 @@ public class RaceStart : MonoBehaviour {
     private List<Transform> StartPos = new List<Transform>();
     Transform[] StartingPosition;
 
-    //int noOfAI = PlayerPrefs.GetInt("AiNum");
-    //int AIDiff = PlayerPrefs.GetInt("AiDiff");
-    int players = 6;
-    int diff = 0;
+    private int players, diff; 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        players = PlayerPrefs.GetInt("AiNum");
+        diff = PlayerPrefs.GetInt("AiDiff");
         track = GameObject.Find("Track");
-
-        //noOfAI = PlayerPrefs.GetInt("AiNum");
-
+        
         for (int i = 0; i < players; i++)
         {
-            start = Instantiate(start_prefab, new Vector3(i * 12f - 265, 2.5f, 6.5f), Quaternion.identity);
+            //(i * 12f - 265, 2.5f, 6.5f)
+            start = Instantiate(start_prefab, new Vector3((i % 2) * 3, 0.1f, -8f + (i * (20 / players))), Quaternion.identity);
             start.transform.SetParent(track.transform);
             start.tag = "Start";
         }
-
+        
+        // Instantiate AI waypoints
         for (int i = 0; i < players; i++)
         {
-            Instantiate(chkpnt_prefab, new Vector3(-195f, 10f, 110f), Quaternion.identity);
             chkpnt_prefab.tag = "Marker" + (i);
+            Instantiate(chkpnt_prefab, new Vector3(90f, 0, 0), Quaternion.identity);
         }
+        chkpnt_prefab.tag = "playerMarker";
+        Instantiate(chkpnt_prefab, new Vector3(90f, 0, 0), Quaternion.identity);
 
-        StartCoroutine(DelayedSpawn(1));
+        StartCoroutine(DelayedSpawn(4));
     }
 
     IEnumerator DelayedSpawn(float delay)
     {
         yield return new WaitForSeconds(delay);
 
+        // Get Starting Positions
         StartingPosition = GetComponentsInChildren<Transform>();
         StartPos = new List<Transform>();
 
@@ -57,11 +60,19 @@ public class RaceStart : MonoBehaviour {
 
         }
 
-        double halfAi = StartPos.Count / 2;
-        int halfAiInt = (int)halfAi;
+        // Set Difficulty
         switch (diff)
         {
-            case 0:
+            case 0: // easy
+                for (int i = 0; i < (StartPos.Count); i++)
+                {
+                    Instantiate(WeakAI_prefab, StartPos[i].position, Quaternion.identity);
+                    WeakAI_prefab.tag = "racer" + (i);
+                }
+                break;
+            case 1: // medium
+                double halfAi = StartPos.Count / 2;
+                int halfAiInt = (int)halfAi;
                 if (StartPos.Count % 2 == 0)
                 {
 
@@ -102,16 +113,19 @@ public class RaceStart : MonoBehaviour {
                         WeakAI_prefab.tag = "racer" + (i);
                     }
                 }
+                Debug.Log(halfAi);
+                Debug.Log(halfAi / 2);
+                Debug.Log(halfAiInt);
+                Debug.Log(halfAiInt / 2);
+                break;
+            case 2: // hard
+                for (int i = 0; i < (StartPos.Count); i++)
+                {
+                    Instantiate(WeakAI_prefab, StartPos[i].position, Quaternion.identity);
+                    WeakAI_prefab.tag = "racer" + (i);
+                }
                 break;
         }
-        Debug.Log(halfAi);
-        Debug.Log(halfAi/2);
-        Debug.Log(halfAiInt);
-        Debug.Log(halfAiInt/2);
+        GameObject.Find("Player").GetComponent<TrackPosition>().InitiateRacers(); // Instantiate racers in position tracking script
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

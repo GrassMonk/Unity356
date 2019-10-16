@@ -38,7 +38,11 @@ public class AIRacers : MonoBehaviour
     void Update()
     {
         //transform.LookAt(target);
-        agent.SetDestination(target.position); // if the target can move
+        try
+        {
+            agent.SetDestination(target.position); // if the target can move
+        }
+        catch (UnassignedReferenceException) { }
         //Debug.Log((target.position - agent.transform.position).magnitude); // for debugging
         AIPowerUpPickup PP = (AIPowerUpPickup)GetComponent(typeof(AIPowerUpPickup));
         PP.FindPowerUps();

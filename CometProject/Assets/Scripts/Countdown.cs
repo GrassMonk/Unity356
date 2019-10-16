@@ -12,9 +12,10 @@ public class Countdown : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GameObject.Find("Player").GetComponent<Controller>().enabled = false;
         countText = GameObject.Find("CountdownText").GetComponent<TMPro.TextMeshProUGUI>();
         StartCoroutine("Count");
-        Time.timeScale = 0.01f;
+        Time.timeScale = 1f;
         GameObject.Find("PauseButton").GetComponent<Button>().enabled = false;
     }
 
@@ -22,11 +23,12 @@ public class Countdown : MonoBehaviour
     {
         while (countInt > -1)
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(1);
             countText.text = ("" + countInt);
             countInt--;
         }
         Time.timeScale = 1;
+        GameObject.Find("Player").GetComponent<Controller>().enabled = true;
         countText.text = "GO!";
         yield return new WaitForSeconds(1);
         GameObject.Find("PauseButton").GetComponent<Button>().enabled = true;
