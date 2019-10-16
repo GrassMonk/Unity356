@@ -46,7 +46,7 @@ public class TrackMarker : MonoBehaviour {
             }
         }
 
-        else if (collision.gameObject.tag == "Player" && this.gameObject.tag == "playerMarker")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "playerMarker")
         {
             this.GetComponent<Collider>().enabled = false;
             markerNo += 1;
