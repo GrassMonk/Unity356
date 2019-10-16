@@ -52,6 +52,7 @@ public class TrackMarker : MonoBehaviour {
             markerNo += 1;
             if (markerNo == trackWaypoints.Length)
             {
+                GameObject.Find("Player").GetComponent<TrackProgress>().IncrementLap();
                 markerNo = 1;
             }
             this.GetComponent<Collider>().enabled = true;
