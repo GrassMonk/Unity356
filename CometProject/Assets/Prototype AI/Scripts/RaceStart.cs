@@ -17,7 +17,7 @@ public class RaceStart : MonoBehaviour {
 
     //int noOfAI = PlayerPrefs.GetInt("AiNum");
     //int AIDiff = PlayerPrefs.GetInt("AiDiff");
-    int players = 1;
+    int players = 6;
     int diff = 0;
     // Use this for initialization
     void Start () {
@@ -38,7 +38,7 @@ public class RaceStart : MonoBehaviour {
             chkpnt_prefab.tag = "Marker" + (i);
         }
 
-        StartCoroutine(DelayedSpawn(0.5f));
+        StartCoroutine(DelayedSpawn(1));
     }
 
     IEnumerator DelayedSpawn(float delay)
@@ -57,23 +57,24 @@ public class RaceStart : MonoBehaviour {
 
         }
 
-
+        double halfAi = StartPos.Count / 2;
+        int halfAiInt = (int)halfAi;
         switch (diff)
         {
             case 0:
                 if (StartPos.Count % 2 == 0)
                 {
 
-                    for (int i = 0; i < (StartPos.Count / 2); i++)
+                    for (int i = 0; i < (int)Mathf.Ceil(halfAiInt / 2); i++)
                     {
                         Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
                         StrongAI_prefab.tag = "racer" + (i);
                     }
 
-                    for (int i = 0; i < ((StartPos.Count / 2)); i++)
+                    for (int i = 0; i < ((halfAi) + Mathf.Floor(halfAiInt / 2)); i++)
                     {
-                        Instantiate(WeakAI_prefab, StartPos[i + (StartPos.Count / 2)].position, Quaternion.identity);
-                        WeakAI_prefab.tag = "racer" + (i + (StartPos.Count / 2));
+                        Instantiate(WeakAI_prefab, StartPos[i + (halfAiInt - (int)Mathf.Floor(halfAiInt/2))].position, Quaternion.identity);
+                        WeakAI_prefab.tag = "racer" + (i + (halfAi - (int)Mathf.Floor(halfAiInt/2)));
                     }
                 }
 
@@ -102,7 +103,11 @@ public class RaceStart : MonoBehaviour {
                     }
                 }
                 break;
-        }  
+        }
+        Debug.Log(halfAi);
+        Debug.Log(halfAi/2);
+        Debug.Log(halfAiInt);
+        Debug.Log(halfAiInt/2);
     }
 
     // Update is called once per frame

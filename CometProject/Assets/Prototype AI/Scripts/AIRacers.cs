@@ -9,7 +9,7 @@ public class AIRacers : MonoBehaviour
     private NavMeshAgent agent;
     Vector3 lastPos;
     
-    int players = 1;
+    int players = 6;
     
     void Start()
     {
