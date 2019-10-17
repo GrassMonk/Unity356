@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114368428549420114}
   m_Layer: 0
   m_Name: StrongAI
-  m_TagString: racer0
+  m_TagString: racer1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

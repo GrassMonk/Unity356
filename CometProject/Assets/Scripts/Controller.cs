@@ -31,8 +31,8 @@ public class Controller : MonoBehaviour {
             }
             else
             {
-                moveHorizontal = Input.acceleration.x;
-                moveVertical = Input.acceleration.y;
+                moveHorizontal = Input.acceleration.x * Time.deltaTime;
+                moveVertical = Input.acceleration.y * Time.deltaTime;
             }
 
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
