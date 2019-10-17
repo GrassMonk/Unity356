@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class TrackPosition : MonoBehaviour
 {
 
-    private int players, place;
+    private int players;
+    public int place;
     private float myTotProg;
     public float[] totProg, progress, totDis, crtDis, playerSize;
+    private Vector3 lastPos;
 
     // Use this for initialization
     void Start()
@@ -87,5 +89,17 @@ public class TrackPosition : MonoBehaviour
             totProg[racerNum] = progress[racerNum] + (1 - (crtDis[racerNum] / totDis[racerNum]));
         }
         catch (System.NullReferenceException) { }
+    }
+
+    void OnTriggerEnter(Collider collision) // Respawn player
+    {
+        if (gameObject.tag == "Player" && collision.gameObject.tag == "playerMarker")
+        {
+            lastPos = collision.transform.position;
+        }
+        if (collision.gameObject.tag == "Respawn")
+        {
+            this.transform.position = lastPos;
+        }
     }
 }

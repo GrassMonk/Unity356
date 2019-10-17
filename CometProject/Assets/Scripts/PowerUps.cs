@@ -17,27 +17,42 @@ public class PowerUps : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision)
     {
+        // get current progress
+        float [] totProg = GameObject.Find("Player").GetComponent<TrackPosition>().totProg;
+        int place = GameObject.Find("Player").GetComponent<TrackPosition>().place;
         GameObject player = collision.gameObject;
-        // Set random powerup button to active
-        int randomPU = Random.Range(0, 4);
-        if (collision.gameObject.tag == "Player")
+        int randomPU;
+
+        if (collision.gameObject.tag == "Player") // if player
         {
+            if (place == totProg.Length + 1) // if player in last place
+                randomPU = Random.Range(3, 4); // Give Invulnerability
+            else
+                randomPU = Random.Range(0, 3);  // Set random powerup button to active
             RectTransform[] Children = GameObject.Find("ActivatePowerUp").GetComponentsInChildren<RectTransform>();
             if (Children.Length == 1) // If there is currently no powerup equipped
             {
                 puBtn[randomPU].SetActive(true);
             }
         }
-        else if (collision.gameObject.tag == "racer1" || 
+        else if (collision.gameObject.tag == "racer0" || 
+            collision.gameObject.tag == "racer1" ||
             collision.gameObject.tag == "racer2" ||
             collision.gameObject.tag == "racer3" ||
             collision.gameObject.tag == "racer4" ||
             collision.gameObject.tag == "racer5" ||
             collision.gameObject.tag == "racer6" ||
-            collision.gameObject.tag == "racer7" ||
-            collision.gameObject.tag == "racer8" )
+            collision.gameObject.tag == "racer7" ) // if AI racer
         {
-            StartCoroutine(Wait5(randomPU, player));
+            int lastPlace = 0;
+            for (int i = 0; i < totProg.Length; i++)
+                if (totProg[i] < totProg[lastPlace])
+                    lastPlace = i;
+            if (player.tag == "racer"+lastPlace && place != totProg.Length + 1) // if AI in last place
+                randomPU = Random.Range(3, 4); // Give Invulnerability
+            else
+                randomPU = Random.Range(0, 3);  // Set random powerup button to active
+            StartCoroutine(Wait5(randomPU, player)); // Delay activation
         }
         gameObject.GetComponent<Renderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
@@ -81,12 +96,12 @@ public class PowerUps : MonoBehaviour {
     }
 
     // Bomb: Instantiates a bomb which emits explosive force shortly after activation and then is destroyed, affecting all balls within a certain radius of the bomb.
-    public void PowerUp3(GameObject player) 
+    public void PowerUp3(GameObject player)
     {
+        // Remove powerup icon
         if (player.gameObject.tag == "Player")
             puBtn[2].SetActive(false);
         Vector3 playerPos = player.transform.position;
-        // Remove powerup icon
         // Instantiate bomb
         bomb = Instantiate(Resources.Load("BombBall") as GameObject, new Vector3(playerPos.x, playerPos.y + 1f, playerPos.z), Quaternion.identity);
         // Start countdown to explosion
@@ -128,11 +143,13 @@ public class PowerUps : MonoBehaviour {
 
     public IEnumerator Wait2(GameObject player)
     {
-        yield return new WaitForSeconds(4f); // waits 4 seconds
+        yield return new WaitForSeconds(2f); // waits 2 seconds
         // Instantiate explosion and explosive force
         explosion = Instantiate(Resources.Load("Explosion", typeof(Transform)) as Transform, bomb.transform.position, Quaternion.identity);
         bomb.transform.GetComponentInChildren<Rigidbody>().AddExplosionForce(10.0f, bomb.transform.position, 0.5f, 0f, ForceMode.Impulse);
         Destroy(bomb);
+        yield return new WaitForSeconds(5f); // waits 5 seconds
+        Destroy(explosion.gameObject);
     }
 
     public IEnumerator Wait3(GameObject player)
@@ -152,7 +169,7 @@ public class PowerUps : MonoBehaviour {
 
     public IEnumerator Wait4(GameObject player)
     {
-        yield return new WaitForSeconds(6f); // waits 5 seconds
+        yield return new WaitForSeconds(6f); // waits 6 seconds
         gameObject.GetComponent<Renderer>().enabled = true;
         gameObject.GetComponent<Collider>().enabled = true;
     }
