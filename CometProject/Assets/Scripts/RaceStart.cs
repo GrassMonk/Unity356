@@ -121,8 +121,8 @@ public class RaceStart : MonoBehaviour {
             case 2: // hard
                 for (int i = 0; i < (StartPos.Count); i++)
                 {
-                    Instantiate(WeakAI_prefab, StartPos[i].position, Quaternion.identity);
-                    WeakAI_prefab.tag = "racer" + (i);
+                    Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
+                    StrongAI_prefab.tag = "racer" + (i);
                 }
                 break;
         }
