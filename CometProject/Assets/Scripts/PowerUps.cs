@@ -17,11 +17,18 @@ public class PowerUps : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision)
     {
+        // get current progress
+        float [] totProg = GameObject.Find("Player").GetComponent<TrackPosition>().totProg;
+        int place = GameObject.Find("Player").GetComponent<TrackPosition>().place;
         GameObject player = collision.gameObject;
-        // Set random powerup button to active
-        int randomPU = Random.Range(0, 4);
-        if (collision.gameObject.tag == "Player")
+        int randomPU;
+
+        if (collision.gameObject.tag == "Player") // if player
         {
+            if (place == totProg.Length + 1) // if player in last place
+                randomPU = Random.Range(3, 4); // Give Invulnerability
+            else
+                randomPU = Random.Range(0, 3);  // Set random powerup button to active
             RectTransform[] Children = GameObject.Find("ActivatePowerUp").GetComponentsInChildren<RectTransform>();
             if (Children.Length == 1) // If there is currently no powerup equipped
             {
@@ -35,9 +42,17 @@ public class PowerUps : MonoBehaviour {
             collision.gameObject.tag == "racer4" ||
             collision.gameObject.tag == "racer5" ||
             collision.gameObject.tag == "racer6" ||
-            collision.gameObject.tag == "racer7" )
+            collision.gameObject.tag == "racer7" ) // if AI racer
         {
-            StartCoroutine(Wait5(randomPU, player));
+            int lastPlace = 0;
+            for (int i = 0; i < totProg.Length; i++)
+                if (totProg[i] < totProg[lastPlace])
+                    lastPlace = i;
+            if (player.tag == "racer"+lastPlace && place != totProg.Length + 1) // if AI in last place
+                randomPU = Random.Range(3, 4); // Give Invulnerability
+            else
+                randomPU = Random.Range(0, 3);  // Set random powerup button to active
+            StartCoroutine(Wait5(randomPU, player)); // Delay activation
         }
         gameObject.GetComponent<Renderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
@@ -133,6 +148,8 @@ public class PowerUps : MonoBehaviour {
         explosion = Instantiate(Resources.Load("Explosion", typeof(Transform)) as Transform, bomb.transform.position, Quaternion.identity);
         bomb.transform.GetComponentInChildren<Rigidbody>().AddExplosionForce(10.0f, bomb.transform.position, 0.5f, 0f, ForceMode.Impulse);
         Destroy(bomb);
+        yield return new WaitForSeconds(5f); // waits 5 seconds
+        Destroy(explosion.gameObject);
     }
 
     public IEnumerator Wait3(GameObject player)

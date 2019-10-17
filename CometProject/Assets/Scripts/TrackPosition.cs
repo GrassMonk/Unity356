@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class TrackPosition : MonoBehaviour
 {
 
-    private int players, place;
+    private int players;
+    public int place;
     private float myTotProg;
     public float[] totProg, progress, totDis, crtDis, playerSize;
 
