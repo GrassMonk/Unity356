@@ -18,7 +18,7 @@ public class TrackMarker : MonoBehaviour {
         GameObject track = GameObject.Find("Track");
         trackWaypoints = track.GetComponentsInChildren<Transform>();
         waypoints = new List<Transform>();
-        for (int i = 0; i < trackWaypoints.Length; i++) {
+        for (int i = 0; i <= waypointNum; i++) {
             if (trackWaypoints[i] != transform && trackWaypoints[i].tag == "waypoint")
             {
                 waypoints.Add(trackWaypoints[i]);
@@ -57,7 +57,7 @@ public class TrackMarker : MonoBehaviour {
             if (markerNo >= waypointNum)
             {
                 GameObject.Find("Player").GetComponent<TrackProgress>().IncrementLap();
-                markerNo = 1;
+                markerNo = 0;
             }
             this.GetComponent<Collider>().enabled = true;
             GameObject.Find("Player").GetComponent<TrackProgress>().TotalDistance();
