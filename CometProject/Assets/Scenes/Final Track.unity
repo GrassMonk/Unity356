@@ -156,6 +156,26 @@ Prefab:
       propertyPath: m_Name
       value: Track_90deg_Curve (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 23307226414872374, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
+    - target: {fileID: 23046602708943932, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
+    - target: {fileID: 23881757270149086, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bbe57d38ed72ea844b886ece84e8da2c, type: 2}
+    - target: {fileID: 23485656893620812, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bbe57d38ed72ea844b886ece84e8da2c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c54126369460be041b1b4ffe4513d15e, type: 2}
   m_IsPrefabAsset: 0
@@ -374,6 +394,11 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 0.50000024
       objectReference: {fileID: 0}
+    - target: {fileID: 23644622583162954, guid: 46b8c8f96cad6c24caddf69ddd4a033b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46b8c8f96cad6c24caddf69ddd4a033b, type: 2}
   m_IsPrefabAsset: 0
@@ -1132,6 +1157,21 @@ Prefab:
       propertyPath: m_Name
       value: Track_Straight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 23644622583162954, guid: 46b8c8f96cad6c24caddf69ddd4a033b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
+    - target: {fileID: 23011769415802790, guid: 46b8c8f96cad6c24caddf69ddd4a033b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bbe57d38ed72ea844b886ece84e8da2c, type: 2}
+    - target: {fileID: 23696700300631034, guid: 46b8c8f96cad6c24caddf69ddd4a033b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bbe57d38ed72ea844b886ece84e8da2c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46b8c8f96cad6c24caddf69ddd4a033b, type: 2}
   m_IsPrefabAsset: 0
@@ -2295,6 +2335,16 @@ Prefab:
       propertyPath: m_Name
       value: Track_90deg_Curve (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 23046602708943932, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
+    - target: {fileID: 23307226414872374, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c54126369460be041b1b4ffe4513d15e, type: 2}
   m_IsPrefabAsset: 0
@@ -2358,6 +2408,16 @@ Prefab:
       propertyPath: m_Name
       value: Track_90deg_Curve (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 23307226414872374, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
+    - target: {fileID: 23046602708943932, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c54126369460be041b1b4ffe4513d15e, type: 2}
   m_IsPrefabAsset: 0
@@ -2895,7 +2955,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4423,6 +4483,16 @@ Prefab:
       propertyPath: m_Name
       value: Track_90deg_Curve (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 23046602708943932, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
+    - target: {fileID: 23307226414872374, guid: c54126369460be041b1b4ffe4513d15e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c54126369460be041b1b4ffe4513d15e, type: 2}
   m_IsPrefabAsset: 0
@@ -4952,7 +5022,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5288,7 +5358,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5646,7 +5716,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5912,7 +5982,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6730,7 +6800,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
+  - {fileID: 2100000, guid: 8b6c671e2660c6e45be22cf5dd49c5fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
