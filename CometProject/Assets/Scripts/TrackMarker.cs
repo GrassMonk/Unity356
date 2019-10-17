@@ -37,7 +37,7 @@ public class TrackMarker : MonoBehaviour {
     {
         for (int i = 0; i < players; i++)
         {
-            if (collision.gameObject.tag == "racer" + (i) && this.gameObject.tag == "Marker" + (i))
+            if (collision.gameObject.tag == ("racer" + i) && this.gameObject.tag == ("Marker" + i))
             {
                 this.GetComponent<Collider>().enabled = false;
                 markerNo += 1;

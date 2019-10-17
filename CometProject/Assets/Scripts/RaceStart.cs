@@ -15,11 +15,13 @@ public class RaceStart : MonoBehaviour {
     private List<Transform> StartPos = new List<Transform>();
     Transform[] StartingPosition;
 
+    
     private int players, diff; 
     // Use this for initialization
     void Start ()
     {
-        players = PlayerPrefs.GetInt("AiNum");
+
+        players = 8; //PlayerPrefs.GetInt("AiNum");
         diff = PlayerPrefs.GetInt("AiDiff");
         track = GameObject.Find("Track");
         
@@ -34,8 +36,8 @@ public class RaceStart : MonoBehaviour {
         // Instantiate AI waypoints
         for (int i = 0; i < players; i++)
         {
-            chkpnt_prefab.tag = "Marker" + (i);
             Instantiate(chkpnt_prefab, new Vector3(90f, 0, 0), Quaternion.identity);
+            chkpnt_prefab.tag = ("Marker" + i);
         }
         chkpnt_prefab.tag = "playerMarker";
         Instantiate(chkpnt_prefab, new Vector3(90f, 0, 0), Quaternion.identity);
@@ -70,38 +72,38 @@ public class RaceStart : MonoBehaviour {
                     WeakAI_prefab.tag = "racer" + (i);
                 }
                 break;
+
             case 1: // medium
-                double halfAi = StartPos.Count / 2;
-                int halfAiInt = (int)halfAi;
+                int halfAiInt = StartPos.Count / 2;
                 if (StartPos.Count % 2 == 0)
                 {
 
-                    for (int i = 0; i < (int)Mathf.Ceil(halfAiInt / 2); i++)
+                    for (int i = 0; i < halfAiInt; i = i+2)
                     {
                         Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
-                        StrongAI_prefab.tag = "racer" + (i);
+                        StrongAI_prefab.tag = "racer" + i;
                     }
 
-                    for (int i = 0; i < ((halfAi) + Mathf.Floor(halfAiInt / 2)); i++)
+                    for (int i = 1; i < halfAiInt; i = i+2)
                     {
-                        Instantiate(WeakAI_prefab, StartPos[i + (halfAiInt - (int)Mathf.Floor(halfAiInt/2))].position, Quaternion.identity);
-                        WeakAI_prefab.tag = "racer" + (i + (halfAi - (int)Mathf.Floor(halfAiInt/2)));
+                        Instantiate(WeakAI_prefab, StartPos[i].position, Quaternion.identity);
+                        WeakAI_prefab.tag = "racer" + i;
                     }
                 }
 
                 else if (StartPos.Count % 2 != 0 && StartPos.Count != 1)
                 {
 
-                    for (int i = 0; i < Mathf.Floor((StartPos.Count / 2)); i++)
+                    for (int i = 0; i < halfAiInt; i = i+2)
                     {
                         Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
-                        StrongAI_prefab.tag = "racer" + (i);
+                        StrongAI_prefab.tag = "racer" + i;
                     }
 
-                    for (int i = 0; i <= Mathf.Ceil((StartPos.Count / 2)); i++)
+                    for (int i = 1; i < halfAiInt + 1; i = i+2)
                     {
-                        Instantiate(WeakAI_prefab, StartPos[i + (int)Mathf.Floor((StartPos.Count / 2))].position, Quaternion.identity);
-                        WeakAI_prefab.tag = "racer" + (i + (int)Mathf.Ceil((StartPos.Count / 2)));
+                        Instantiate(WeakAI_prefab, StartPos[i].position, Quaternion.identity);
+                        WeakAI_prefab.tag = "racer" + i;
                     }
                 }
 
@@ -109,15 +111,12 @@ public class RaceStart : MonoBehaviour {
                 {
                     for (int i = 0; i < (StartPos.Count); i++)
                     {
-                        Instantiate(WeakAI_prefab, StartPos[i].position, Quaternion.identity);
+                        Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
                         WeakAI_prefab.tag = "racer" + (i);
                     }
                 }
-                Debug.Log(halfAi);
-                Debug.Log(halfAi / 2);
-                Debug.Log(halfAiInt);
-                Debug.Log(halfAiInt / 2);
                 break;
+
             case 2: // hard
                 for (int i = 0; i < (StartPos.Count); i++)
                 {
