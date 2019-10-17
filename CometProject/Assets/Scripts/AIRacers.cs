@@ -9,11 +9,11 @@ public class AIRacers : MonoBehaviour
     private NavMeshAgent agent;
     Vector3 lastPos;
     
-    int players = 8;
+    private int players;
     
     void Start()
     {
-        int noOfAI = PlayerPrefs.GetInt("AiNum");
+        players = PlayerPrefs.GetInt("AiNum");
         agent = this.GetComponent<NavMeshAgent>();
         try
         {

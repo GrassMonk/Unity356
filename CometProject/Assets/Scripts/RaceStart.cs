@@ -21,7 +21,7 @@ public class RaceStart : MonoBehaviour {
     void Start ()
     {
 
-        players = 8; //PlayerPrefs.GetInt("AiNum");
+        players = PlayerPrefs.GetInt("AiNum");
         diff = PlayerPrefs.GetInt("AiDiff");
         track = GameObject.Find("Track");
         
@@ -39,10 +39,11 @@ public class RaceStart : MonoBehaviour {
             Instantiate(chkpnt_prefab, new Vector3(90f, 0, 0), Quaternion.identity);
             chkpnt_prefab.tag = ("Marker" + i);
         }
-        chkpnt_prefab.tag = "playerMarker";
-        Instantiate(chkpnt_prefab, new Vector3(90f, 0, 0), Quaternion.identity);
 
         StartCoroutine(DelayedSpawn(4));
+        
+        Instantiate(chkpnt_prefab, new Vector3(90f, 0, 0), Quaternion.identity);
+        chkpnt_prefab.tag = "playerMarker";
     }
 
     IEnumerator DelayedSpawn(float delay)
@@ -75,16 +76,17 @@ public class RaceStart : MonoBehaviour {
 
             case 1: // medium
                 int halfAiInt = StartPos.Count / 2;
+
                 if (StartPos.Count % 2 == 0)
                 {
 
-                    for (int i = 0; i < halfAiInt; i = i+2)
+                    for (int i = 0; i < StartPos.Count; i = i+2)
                     {
                         Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
                         StrongAI_prefab.tag = "racer" + i;
                     }
 
-                    for (int i = 1; i < halfAiInt; i = i+2)
+                    for (int i = 1; i < StartPos.Count; i = i+2)
                     {
                         Instantiate(WeakAI_prefab, StartPos[i].position, Quaternion.identity);
                         WeakAI_prefab.tag = "racer" + i;
@@ -94,13 +96,13 @@ public class RaceStart : MonoBehaviour {
                 else if (StartPos.Count % 2 != 0 && StartPos.Count != 1)
                 {
 
-                    for (int i = 0; i < halfAiInt; i = i+2)
+                    for (int i = 1; i < StartPos.Count; i = i+2)
                     {
                         Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
                         StrongAI_prefab.tag = "racer" + i;
                     }
 
-                    for (int i = 1; i < halfAiInt + 1; i = i+2)
+                    for (int i = 0; i < StartPos.Count; i = i+2)
                     {
                         Instantiate(WeakAI_prefab, StartPos[i].position, Quaternion.identity);
                         WeakAI_prefab.tag = "racer" + i;
@@ -112,7 +114,7 @@ public class RaceStart : MonoBehaviour {
                     for (int i = 0; i < (StartPos.Count); i++)
                     {
                         Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
-                        WeakAI_prefab.tag = "racer" + (i);
+                        WeakAI_prefab.tag = "racer" + i;
                     }
                 }
                 break;
@@ -121,7 +123,7 @@ public class RaceStart : MonoBehaviour {
                 for (int i = 0; i < (StartPos.Count); i++)
                 {
                     Instantiate(StrongAI_prefab, StartPos[i].position, Quaternion.identity);
-                    StrongAI_prefab.tag = "racer" + (i);
+                    StrongAI_prefab.tag = "racer" + i;
                 }
                 break;
         }
