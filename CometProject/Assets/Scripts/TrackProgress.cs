@@ -50,7 +50,7 @@ public class TrackProgress : MonoBehaviour {
 
     private IEnumerator GetTotDis()
     {
-        progress += (1 - (crtDis / totDis));
+        progress++;
         yield return new WaitForSeconds(0);
         totDis = Vector3.Distance(GameObject.Find("Player").transform.position, GameObject.FindWithTag("playerMarker").transform.position) - (12.5f + playerSize);
     }

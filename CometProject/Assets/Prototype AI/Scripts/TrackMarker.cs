@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrackMarker : MonoBehaviour {
 
     public GameObject marker;
-    private int markerNo = 0;
+    private int markerNo = 0, waypointNum;
     private List<Transform> waypoints = new List<Transform>();
     Transform[] trackWaypoints;
 
@@ -13,13 +13,16 @@ public class TrackMarker : MonoBehaviour {
 
     void Start()
     {
+        waypointNum = 7;
         players = PlayerPrefs.GetInt("AiNum");
         GameObject track = GameObject.Find("Track");
         trackWaypoints = track.GetComponentsInChildren<Transform>();
         waypoints = new List<Transform>();
         for (int i = 0; i < trackWaypoints.Length; i++) {
-            if (trackWaypoints[i] != transform && trackWaypoints[i].tag == "waypoint") 
+            if (trackWaypoints[i] != transform && trackWaypoints[i].tag == "waypoint")
+            {
                 waypoints.Add(trackWaypoints[i]);
+            }
         }
         marker.transform.position = waypoints[markerNo].transform.position;
     }
@@ -38,7 +41,7 @@ public class TrackMarker : MonoBehaviour {
             {
                 this.GetComponent<Collider>().enabled = false;
                 markerNo += 1;
-                if (markerNo == trackWaypoints.Length)
+                if (markerNo >= waypointNum)
                 {
                     markerNo = 0;
                 }
@@ -51,7 +54,7 @@ public class TrackMarker : MonoBehaviour {
         {
             this.GetComponent<Collider>().enabled = false;
             markerNo += 1;
-            if (markerNo == trackWaypoints.Length)
+            if (markerNo >= waypointNum)
             {
                 GameObject.Find("Player").GetComponent<TrackProgress>().IncrementLap();
                 markerNo = 1;

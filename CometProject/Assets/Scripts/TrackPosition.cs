@@ -42,8 +42,10 @@ public class TrackPosition : MonoBehaviour
         myTotProg = GameObject.Find("Player").GetComponent<TrackProgress>().totProg;
         place = players+1;
         // For Each racer get progress
+       //Debug.Log("my Prog: " + myTotProg);  
         for (int i = 0; i < players; i++)
         {
+            Debug.Log(i + " Prog: " + totProg[i]);
             StartCoroutine(GetCrtDis(i));
             if (myTotProg > totProg[i])
                 place--;
@@ -68,7 +70,7 @@ public class TrackPosition : MonoBehaviour
 
     private IEnumerator GetTotDis(int racerNum)
     {
-        progress[racerNum] += (1 - (crtDis[racerNum] / totDis[racerNum]));
+        progress[racerNum]++;
         yield return new WaitForSeconds(0);
         try
         {
