@@ -9,7 +9,7 @@ public class AIRacers : MonoBehaviour
     private NavMeshAgent agent;
     Vector3 lastPos;
     
-    int players = 6;
+    int players = 8;
     
     void Start()
     {
@@ -19,9 +19,9 @@ public class AIRacers : MonoBehaviour
         {
             for(int i = 0; i < players; i++)
             {
-                if(gameObject.tag == "racer" + (i))
+                if(gameObject.tag == ("racer" + i))
                 {
-                    target = GameObject.FindWithTag("Marker" + (i)).GetComponent<Transform>();
+                    target = GameObject.FindWithTag(("Marker" + i)).GetComponent<Transform>();
                 }
                 
             }
