@@ -42,7 +42,7 @@ public class TrackPosition : MonoBehaviour
         myTotProg = GameObject.Find("Player").GetComponent<TrackProgress>().totProg;
         place = players+1;
         // For Each racer get progress
-       //Debug.Log("my Prog: " + myTotProg);  
+        Debug.Log("my Prog: " + myTotProg);  
         for (int i = 0; i < players; i++)
         {
             Debug.Log(i + " Prog: " + totProg[i]);
