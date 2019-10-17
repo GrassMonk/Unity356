@@ -49,7 +49,7 @@ public class AIRacers : MonoBehaviour
 
     }
 
-    
+    // respawn AI racers
     void OnTriggerEnter (Collider collision)
     {
         for (int i = 0; i < players; i++)
