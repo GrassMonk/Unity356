@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4514032, g: 0.5008929, b: 0.57231516, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140398, g: 0.5008938, b: 0.57231677, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1247,7 +1247,7 @@ Prefab:
     - target: {fileID: 114883611314462354, guid: 9eb3ce2052fc5304395713cb8ffc8d28,
         type: 2}
       propertyPath: maxSpeed
-      value: 999
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 54964347427411370, guid: 9eb3ce2052fc5304395713cb8ffc8d28,
         type: 2}
@@ -1951,12 +1951,12 @@ Prefab:
     - target: {fileID: 224638404456074762, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224386586521521158, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114042273567255956, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
@@ -2139,27 +2139,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1794899844431838, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1079054707519852, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1796115491847410, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1224914515482746, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1142192734564790, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1994797972721342, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1, type: 2}
@@ -7187,7 +7187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2132316185
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7302,11 +7302,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
