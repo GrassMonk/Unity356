@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114368428549420114}
   m_Layer: 0
   m_Name: WeakAI
-  m_TagString: racer7
+  m_TagString: racer6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
