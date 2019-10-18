@@ -29,6 +29,12 @@ public class LoadGamePrefs : MonoBehaviour {
         myBall.GetComponent<Renderer>().material.SetColor("_SpecColor", specular);
         myBall.GetComponent<Rigidbody>().mass = ma;
         myBall.transform.localScale = new Vector3(si, si, si);
+        if (ma == 1)
+            myBall.GetComponent<Controller>().acceleration = 7.5f;
+        else if (ma == 2)
+            myBall.GetComponent<Controller>().acceleration = 15f;
+        else
+            myBall.GetComponent<Controller>().acceleration = 22.5f;
     }
 
     private void Update()

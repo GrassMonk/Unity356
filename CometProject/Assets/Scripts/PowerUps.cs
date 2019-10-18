@@ -34,6 +34,10 @@ public class PowerUps : MonoBehaviour {
             {
                 puBtn[randomPU].SetActive(true);
             }
+            // Temporarily remove powerup
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
+            StartCoroutine(Wait4(player));
         }
         else if (collision.gameObject.tag == "racer0" || 
             collision.gameObject.tag == "racer1" ||
@@ -53,10 +57,11 @@ public class PowerUps : MonoBehaviour {
             else
                 randomPU = Random.Range(0, 3);  // Set random powerup button to active
             StartCoroutine(Wait5(randomPU, player)); // Delay activation
+            // Temporarily remove powerup
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
+            StartCoroutine(Wait4(player));
         }
-        gameObject.GetComponent<Renderer>().enabled = false;
-        gameObject.GetComponent<Collider>().enabled = false;
-        StartCoroutine(Wait4(player));
     }
 
     // Speed Boost: Player ball recieves an increase in speed for a short period of time. Recieved only by the bottom 75% of players.
@@ -89,10 +94,10 @@ public class PowerUps : MonoBehaviour {
             vel = player.GetComponent<NavMeshAgent>().velocity;
         Vector3 playerPos = player.transform.position;
         Vector3 direction = Vector3.Normalize(vel);
-        // Instantiate 3 units behind player.
-        oil = Instantiate(Resources.Load("OilSpill") as GameObject, new Vector3(playerPos.x - direction.x * 3.0f, 
+        // Instantiate 5 units behind player.
+        oil = Instantiate(Resources.Load("OilSpill") as GameObject, new Vector3(playerPos.x - direction.x * 5.0f, 
             (playerPos.y - direction.y) - (player.transform.localScale.y / 2) + 0.1f,
-            playerPos.z - direction.z * 3.0f), Quaternion.identity);
+            playerPos.z - direction.z * 5.0f), Quaternion.identity);
     }
 
     // Bomb: Instantiates a bomb which emits explosive force shortly after activation and then is destroyed, affecting all balls within a certain radius of the bomb.
