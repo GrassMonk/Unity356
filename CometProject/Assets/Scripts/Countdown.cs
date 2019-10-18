@@ -16,7 +16,6 @@ public class Countdown : MonoBehaviour
         countText = GameObject.Find("CountdownText").GetComponent<TMPro.TextMeshProUGUI>();
         StartCoroutine("Count");
         Time.timeScale = 1f;
-        GameObject.Find("PauseButton").GetComponent<Button>().enabled = false;
     }
 
     IEnumerator Count()
@@ -27,11 +26,9 @@ public class Countdown : MonoBehaviour
             countText.text = ("" + countInt);
             countInt--;
         }
-        Time.timeScale = 1;
         GameObject.Find("Player").GetComponent<Controller>().enabled = true;
         countText.text = "GO!";
         yield return new WaitForSeconds(1);
-        GameObject.Find("PauseButton").GetComponent<Button>().enabled = true;
         countText.enabled = false;
     }
 }
