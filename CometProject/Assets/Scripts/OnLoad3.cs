@@ -11,6 +11,11 @@ public class OnLoad3 : MonoBehaviour
             Time.timeScale = 1;
         else
             Time.timeScale = 0;
+        if (gameObject.name == "FinishMenu")
+        {
+            GameObject.Find("RacingMusic").GetComponent<AudioSource>().mute = true;
+            GameObject.Find("EndMusic").GetComponent<AudioSource>().Play();
+        }
         if (PlayerPrefs.HasKey("Music"))
         {
             if (PlayerPrefs.GetInt("Music") == 0)
@@ -27,6 +32,7 @@ public class OnLoad3 : MonoBehaviour
                 GameObject.Find("ToggleGyro").GetComponent<Toggle>().isOn = false;
         }
     }
+
     private void OnDisable()
     {
         if (gameObject.name == "PauseMenu")

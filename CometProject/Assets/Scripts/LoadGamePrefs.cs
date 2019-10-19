@@ -11,9 +11,11 @@ public class LoadGamePrefs : MonoBehaviour {
     private Color color;
     private Color specular;
     public GameObject myBall;
-
+    private AudioSource bump;
+    
     private void Start()
     {
+        bump = GameObject.Find("BumpSound").GetComponent<AudioSource>();
         r1 = PlayerPrefs.GetFloat("Color_r");
         g1 = PlayerPrefs.GetFloat("Color_g");
         b1 = PlayerPrefs.GetFloat("Color_b");
@@ -59,5 +61,11 @@ public class LoadGamePrefs : MonoBehaviour {
         {
             // Debug.Log(e.Message);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        bump.pitch = UnityEngine.Random.Range(0.5f, 2);
+        bump.Play();
     }
 }

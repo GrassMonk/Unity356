@@ -9,6 +9,17 @@ public class PowerUps : MonoBehaviour {
     private GameObject bomb, oil;
     private Transform explosion;
     public GameObject[] puBtn;
+    private AudioSource collect, pu1Sound, pu2Sound, pu31Sound, pu32Sound, pu4Sound;
+
+    private void Start()
+    {
+        collect = GameObject.Find("PUSound").GetComponent<AudioSource>();
+        pu1Sound = GameObject.Find("PU1Sound").GetComponent<AudioSource>();
+        pu2Sound = GameObject.Find("PU2Sound").GetComponent<AudioSource>();
+        pu31Sound = GameObject.Find("PU3-1Sound").GetComponent<AudioSource>();
+        pu32Sound = GameObject.Find("PU3-2Sound").GetComponent<AudioSource>();
+        pu4Sound = GameObject.Find("PU4Sound").GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -17,6 +28,8 @@ public class PowerUps : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision)
     {
+        collect.pitch = UnityEngine.Random.Range(0.5f, 2);
+        collect.Play();
         // get current progress
         float [] totProg = GameObject.Find("Player").GetComponent<TrackPosition>().totProg;
         int place = GameObject.Find("Player").GetComponent<TrackPosition>().place;
@@ -65,8 +78,10 @@ public class PowerUps : MonoBehaviour {
     }
 
     // Speed Boost: Player ball recieves an increase in speed for a short period of time. Recieved only by the bottom 75% of players.
-    public void PowerUp1 (GameObject player) 
+    public void PowerUp1 (GameObject player)
     {
+        pu1Sound.pitch = UnityEngine.Random.Range(0.5f, 2);
+        pu1Sound.Play();
         // Double speed
         if (player.gameObject.tag == "Player")
         {
@@ -84,6 +99,8 @@ public class PowerUps : MonoBehaviour {
     // Oil Slick: Instantiates a puddle of oil which slows down balls which collide with it for a short period of time. The oil is destroyed upon collision.
     public void PowerUp2(GameObject player)
     {
+        pu2Sound.pitch = UnityEngine.Random.Range(0.5f, 2);
+        pu2Sound.Play();
         Vector3 vel;
         if (player.gameObject.tag == "Player")
         {
@@ -103,6 +120,7 @@ public class PowerUps : MonoBehaviour {
     // Bomb: Instantiates a bomb which emits explosive force shortly after activation and then is destroyed, affecting all balls within a certain radius of the bomb.
     public void PowerUp3(GameObject player)
     {
+        pu31Sound.Play();
         // Remove powerup icon
         if (player.gameObject.tag == "Player")
             puBtn[2].SetActive(false);
@@ -116,6 +134,8 @@ public class PowerUps : MonoBehaviour {
     // Invulnerability: Player ball recieves massive buff (speed, mass and size increase). Recieved only by the bottom 25% of players.
     public void PowerUp4(GameObject player) 
     {
+        pu4Sound.pitch = UnityEngine.Random.Range(0.5f, 2);
+        pu4Sound.Play();
         // Remove powerup icon
         if (player.gameObject.tag == "Player")
         {
@@ -149,6 +169,7 @@ public class PowerUps : MonoBehaviour {
     public IEnumerator Wait2(GameObject player)
     {
         yield return new WaitForSeconds(2f); // waits 2 seconds
+        pu32Sound.Play();
         // Instantiate explosion and explosive force
         explosion = Instantiate(Resources.Load("Explosion", typeof(Transform)) as Transform, bomb.transform.position, Quaternion.identity);
         bomb.transform.GetComponentInChildren<Rigidbody>().AddExplosionForce(10.0f, bomb.transform.position, 0.5f, 0f, ForceMode.Impulse);

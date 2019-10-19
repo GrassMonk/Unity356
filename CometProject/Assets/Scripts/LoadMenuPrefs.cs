@@ -11,10 +11,12 @@ public class LoadMenuPrefs : MonoBehaviour {
     private Color color;
     private Color specular;
     private GameObject myBall;
+    private AudioSource pop;
 
     private void Start()
     {
         myBall = GameObject.Find("MenuBall");
+        pop = GameObject.Find("BumpSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -107,4 +109,8 @@ public class LoadMenuPrefs : MonoBehaviour {
 
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        pop.Play();
+    }
 }
