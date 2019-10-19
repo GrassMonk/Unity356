@@ -9,6 +9,7 @@ public class Controller : MonoBehaviour {
     public float acceleration;
     public float maxSpeed;
     private Transform camTran;
+    Vector3 movement;
 
     // Use this for initialization
     void Start () {
@@ -21,7 +22,7 @@ public class Controller : MonoBehaviour {
         float speed = rb.velocity.magnitude;
         bool gyro = PlayerPrefs.GetInt("Gyro") != 0;
         float moveHorizontal, moveVertical;
-        Vector3 movement;
+        
         if (speed < maxSpeed)
         {
             if (gyro == false)
@@ -52,4 +53,12 @@ public class Controller : MonoBehaviour {
             rb.AddForce(dir * acceleration);
         }
     }
+    /*
+    private void OnGUI()
+    {
+        GUI.Box(new Rect(10, 10, 300, 90), "Measurements");
+        GUI.Label(new Rect(20, 40, 300, 20), "BALL SPEED:" + movement);
+        
+    }
+    */
 }
