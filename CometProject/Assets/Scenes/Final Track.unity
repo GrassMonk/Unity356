@@ -1247,7 +1247,7 @@ Prefab:
     - target: {fileID: 114883611314462354, guid: 9eb3ce2052fc5304395713cb8ffc8d28,
         type: 2}
       propertyPath: maxSpeed
-      value: 30
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 54964347427411370, guid: 9eb3ce2052fc5304395713cb8ffc8d28,
         type: 2}
@@ -1907,12 +1907,12 @@ Prefab:
     - target: {fileID: 114566954908877960, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114566954908877960, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1921855614676184, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1, type: 2}
       propertyPath: m_Name
@@ -1921,32 +1921,32 @@ Prefab:
     - target: {fileID: 114105994606300574, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114105994606300574, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114930771265505482, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114930771265505482, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114702213810180186, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114702213810180186, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224638404456074762, guid: 2a09d6dc81b7fd947af6e6bfd51f7ee1,
         type: 2}
