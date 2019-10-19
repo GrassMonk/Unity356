@@ -72,7 +72,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4724275751607680}
-  - component: {fileID: 111222589195427026}
   m_Layer: 0
   m_Name: BombBall
   m_TagString: Untagged
@@ -276,21 +275,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!111 &111222589195427026
-Animation:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1913103130964364}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 38972d9a807375f4fbdbf2e076aa183f, type: 3}
-  m_Animations:
-  - {fileID: 7400000, guid: 38972d9a807375f4fbdbf2e076aa183f, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!135 &135717767445272316
 SphereCollider:
   m_ObjectHideFlags: 1

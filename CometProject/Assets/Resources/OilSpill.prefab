@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114024982915278010}
   - component: {fileID: 54004358198644588}
   - component: {fileID: 65801756333921332}
-  - component: {fileID: 65830075987520414}
+  - component: {fileID: 135117444853368564}
   m_Layer: 0
   m_Name: OilSpill
   m_TagString: Untagged
@@ -114,18 +114,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.5, z: 0.75}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65830075987520414
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1032779295591030}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.5, z: 0.75}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &114024982915278010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,3 +125,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08316526ba5380e4ba9b22cbc5b95949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135117444853368564
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032779295591030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0, z: 0}
