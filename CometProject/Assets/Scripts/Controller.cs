@@ -21,21 +21,25 @@ public class Controller : MonoBehaviour {
         float speed = rb.velocity.magnitude;
         bool gyro = PlayerPrefs.GetInt("Gyro") != 0;
         float moveHorizontal, moveVertical;
-
+        Vector3 movement;
         if (speed < maxSpeed)
         {
             if (gyro == false)
             {
                 moveHorizontal = CrossPlatformInputManager.GetAxis("Horizontal");
                 moveVertical = CrossPlatformInputManager.GetAxis("Vertical");
+
+                movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
             }
             else
             {
-                moveHorizontal = Input.acceleration.x * Time.deltaTime;
-                moveVertical = Input.acceleration.y * Time.deltaTime;
+                movement = Quaternion.Euler(90,0,0) * (Input.acceleration);
+                
+               // moveVertical = Input.acceleration.y * Time.deltaTime;
+
             }
 
-            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+           
 
             if (movement.magnitude > 1)
                 movement.Normalize();
