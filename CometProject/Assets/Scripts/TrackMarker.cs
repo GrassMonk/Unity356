@@ -12,6 +12,7 @@ public class TrackMarker : MonoBehaviour {
     private int players;
 
     void Start()
+        // Puts waypoints in a list
     {
         waypointNum = 7;
         players = PlayerPrefs.GetInt("AiNum");
@@ -30,10 +31,11 @@ public class TrackMarker : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        marker.transform.position = waypoints[markerNo].transform.position;
+        marker.transform.position = waypoints[markerNo].transform.position; // moves the marker to the next waypoint number
     }
 
     void OnTriggerEnter(Collider collision)
+        // disables and reenables the collider for the waypoints when an AI reaches it
     {
         for (int i = 0; i < players; i++)
         {

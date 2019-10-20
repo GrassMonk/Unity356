@@ -18,7 +18,8 @@ public class AIRacers : MonoBehaviour
         mass = PlayerPrefs.GetInt("Mass");
         players = PlayerPrefs.GetInt("AiNum");
         agent = this.GetComponent<NavMeshAgent>();
-        try
+
+        try // sets the target for each AI depending on their tag
         {
             for(int i = 0; i < players; i++)
             {
@@ -41,7 +42,7 @@ public class AIRacers : MonoBehaviour
     void Update()
     {
         //transform.LookAt(target);
-        try
+        try // sets acceleration values depending on selected mass of the player
         {
             switch(mass)
             {

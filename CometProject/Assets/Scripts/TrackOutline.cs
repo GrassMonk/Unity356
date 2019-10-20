@@ -9,6 +9,7 @@ public class TrackOutline : MonoBehaviour {
     private List<Transform> waypoints = new List<Transform>();
 
     void OnDrawGizmos() {
+        // draws an outline of the track in the editor based on tagged objects
         Gizmos.color = trackColor;
 
         Transform[] trackWaypoints = GetComponentsInChildren<Transform>();

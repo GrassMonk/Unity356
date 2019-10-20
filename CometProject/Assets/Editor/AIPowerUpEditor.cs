@@ -6,6 +6,7 @@ using UnityEditor;
 [CustomEditor (typeof (AIPowerUpPickup))]
 public class AIPowerUpEditor : Editor
 {
+    // Handles visualisation of the AI power up arc
     void OnSceneGUI()
     {
         AIPowerUpPickup pp = (AIPowerUpPickup)target;

@@ -32,6 +32,7 @@ public class AIPowerUpPickup : MonoBehaviour {
         }
     }
 
+    // Creates detection arc for power up pick ups
     public void FindPowerUps()
     {
         PowerUps.Clear();
