@@ -49,31 +49,31 @@ public class AIRacers : MonoBehaviour
                 case 1:
                     if (this.gameObject.name == "StrongAI(Clone)")
                     {
-                        agent.acceleration = Random.Range(7.5f, 10f);
+                        agent.acceleration = Random.Range(7.5f, 14f);
                     }
                     else if (this.gameObject.name == "WeakAI(Clone)")
                     {
-                        agent.acceleration = Random.Range(5, 10f);
+                        agent.acceleration = Random.Range(5, 14f);
                     }
                     break;
                 case 2:
                     if (this.gameObject.name == "StrongAI(Clone)")
                     {
-                        agent.acceleration = Random.Range(5f, 8f);
+                        agent.acceleration = Random.Range(5f, 12f);
                     }
                     else if (this.gameObject.name == "WeakAI(Clone)")
                     {
-                        agent.acceleration = Random.Range(2.5f, 8f);
+                        agent.acceleration = Random.Range(2.5f, 12f);
                     }
                     break;
                 case 3:
                     if (this.gameObject.name == "StrongAI(Clone)")
                     {
-                        agent.acceleration = Random.Range(4f, 6.5f);
+                        agent.acceleration = Random.Range(4f, 10f);
                     }
                     else if (this.gameObject.name == "WeakAI(Clone)")
                     {
-                        agent.acceleration = Random.Range(2.5f, 6.5f);
+                        agent.acceleration = Random.Range(2.5f, 10f);
                     }
                     break;
             }
