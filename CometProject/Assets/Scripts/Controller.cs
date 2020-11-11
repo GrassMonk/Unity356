@@ -25,6 +25,7 @@ public class Controller : MonoBehaviour {
         
         if (speed < maxSpeed)
         {
+            /* mobile controls code
             if (gyro == false)
             {
                 moveHorizontal = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -39,8 +40,45 @@ public class Controller : MonoBehaviour {
                // moveVertical = Input.acceleration.y * Time.deltaTime;
 
             }
+            */
 
-           
+            // Keyboard controls
+            movement = new Vector3();
+            if (Input.GetKey(KeyCode.W))
+            {
+                movement += new Vector3(0, 0, 1);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                movement += new Vector3(0, 0, -1);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                movement += new Vector3(-1, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                movement += new Vector3(1, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                GameObject pwrupBtn = GameObject.Find("ActivatePowerUp");
+                for (int i = 0; i < pwrupBtn.transform.childCount; i++)
+                {
+                    if (pwrupBtn.transform.GetChild(i).gameObject.activeSelf == true)
+                    {
+                        PowerUps pu = GameObject.Find("PowerUp").GetComponent<PowerUps>();
+                        if (i == 0)
+                            pu.PowerUp1(this.gameObject);
+                        else if (i == 1)
+                            pu.PowerUp2(this.gameObject);
+                        else if (i == 2)
+                            pu.PowerUp3(this.gameObject);
+                        else if (i == 3)
+                            pu.PowerUp4(this.gameObject);
+                    }
+                }
+            }
 
             if (movement.magnitude > 1)
                 movement.Normalize();

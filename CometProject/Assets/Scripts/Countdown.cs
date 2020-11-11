@@ -7,6 +7,7 @@ public class Countdown : MonoBehaviour
 {
 
     private TMPro.TextMeshProUGUI countText;
+    private TMPro.TextMeshProUGUI controlText;
     private int countInt = 3;
     public GameObject PauseMenu;
     private AudioSource horn;
@@ -17,6 +18,7 @@ public class Countdown : MonoBehaviour
         horn = GameObject.Find("HornSound").GetComponent<AudioSource>();
         GameObject.Find("Player").GetComponent<Controller>().enabled = false;
         countText = GameObject.Find("CountdownText").GetComponent<TMPro.TextMeshProUGUI>();
+        controlText = GameObject.Find("Controls").GetComponent<TMPro.TextMeshProUGUI>();
         StartCoroutine("Count");
         Time.timeScale = 1f;
     }
@@ -38,5 +40,6 @@ public class Countdown : MonoBehaviour
         horn.Play();
         yield return new WaitForSeconds(1);
         countText.enabled = false;
+        controlText.enabled = false;
     }
 }
